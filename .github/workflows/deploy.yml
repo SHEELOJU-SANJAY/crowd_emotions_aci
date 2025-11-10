@@ -32,19 +32,4 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # Step 6: Deploy to Azure Container Instances (ACI)
-      - name: Deploy to Azure Container Instances
-        uses: azure/aci-deploy@v1
-        with:
-          resource-group: crowd-emotions-rg
-          name: crowd-emotions-container
-          image: ${{ secrets.DOCKER_USERNAME }}/crowd_emotions:latest
-          dns-name-label: crowd-emotions-${{ github.run_number }}
-          location: eastus              # REQUIRED - Azure region where ACI will be deployed
-          ports: 8080                   # Expose port 8080
-          cpu: 1                        # Allocate 1 vCPU
-          memory: 1.5                   # Allocate 1.5 GB of RAM
-          os-type: Linux                # Linux container
-          ip-address: Public            # Public IP (so you can access via browser)
-          protocol: TCP                 # TCP protocol for port 8080
-          restart-policy: Always        # Restart container automatically if it stops
+      
