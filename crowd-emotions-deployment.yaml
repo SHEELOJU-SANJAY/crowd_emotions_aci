@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crowd-emotions-deployment
+  labels:
+    app: crowd-emotions
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crowd-emotions
+  template:
+    metadata:
+      labels:
+        app: crowd-emotions
+    spec:
+      containers:
+      - name: crowd-emotions
+        image: sanjay1187/crowd_emotions:latest
+        ports:
+        - containerPort: 8080
