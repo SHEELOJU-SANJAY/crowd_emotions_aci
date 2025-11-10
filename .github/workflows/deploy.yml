@@ -35,3 +35,5 @@ jobs:
           image: ${{ secrets.DOCKER_USERNAME }}/crowd_emotions:latest
           dns-name-label: crowd-emotions-${{ github.run_number }}
           ports: 8080
+          location: eastus
+
